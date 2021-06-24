@@ -1,0 +1,172 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.avatar{
+    border-radius: 7px;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+.container-allReputations{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 50px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 0 auto;
+    width: 80%;
+}
+
+.container-reputation{
+    border : 1px solid black;
+    padding: 10px
+}
+
+.container-infos{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.container-info{
+    padding: 10px;
+}
+.categories{
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.categories h2{
+    width: 180px;
+}
+
+.categories button{
+    padding: 0 10px;
+    background-color : rgb(92, 14, 14);
+    color : white;
+}
+h3{
+    padding-bottom: 100px;
+    color: white;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.entour{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.vert{
+    color:green
+}
+
+.bold{
+    font-weight: bold;
+}
+.nom-zone{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.legion{
+    background-image: url('../image/legion.jpeg');
+}
+
+.bfa{
+    background-image: url('../image/bfa.jpg');
+}
+
+.shadowland{
+    background-image: url('../image/shadowland.jpg');
+}
+
+.wod{
+    background-image: url('../image/wod.jpg');
+}
+
+.pandaria{
+    background-image: url('../image/pandarie.jpg');
+}
+
+.guilde{
+    background-image: url('../image/guilde.jpg');
+}
+
+.cataclysm{
+    background-image: url('../image/cataclysm.jpg');
+}
+
+header{
+    background-color: rgb(34, 33, 33);
+    background-image: url("../image/wow.jpg");
+    background-position: center;
+    height: 300px;
+    width: 100%;
+}
+
+.barreRecherche{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+form, input, .rechercher{
+    display: block;
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+  
+}
+
+.main1{
+    margin-top: 2em;
+}
+@media only screen and (min-width:1200px){
+    
+    .avatar{
+        width: 300px;
+    }
+
+    .categories{
+        margin: 4em 0 2em 150px;
+    }
+    
+    .container-allReputations{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .container-infos{
+        flex-direction: row;
+        align-items: center;
+    }
+    .container-info{
+        width: 50%;
+    }
+
+    .barreRecherche{
+        width: 65%;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        align-items: center;
+       
+        
+        
+    }
+
+    input{
+        width: 300px;
+        margin: 0;
+    }
+
+    .rechercher{
+        width: 100px;
+        margin: 0;
+    }
+
+}

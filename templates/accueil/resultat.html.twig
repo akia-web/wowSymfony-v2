@@ -1,0 +1,53 @@
+{% extends 'accueil/index.html.twig' %}
+{% block title %}{{pseudo}}-{{serveur}}{% endblock %}
+{% block body %}
+    <div class="container-infos">
+    <img class="avatar" src="{{persos.bust.url}}" alt="">
+    <div class="container-info">
+        <p>{{pseudo}} - {{serveur}} </p>
+        <p>{{persos.class.name}}</p>
+        <p>Niveau {{persos.level}} </p>
+        <p> Race :  {{persos.race.name}} </p>
+        <p>{{persos.achievement}} points de hauts faits</p>
+      
+    </div>
+
+    </div>
+
+    
+
+    <div class="categories">
+      <h2>Les réputations</h1> <button id="cache">↕</button>
+    </div>
+    
+    <div class="container-allReputations" id="toggle">
+    {% for zone in zones  %}
+      <div  class="container-reputation">
+        <h3 data-zone="{{zone.name}}" class="nom-zone"> {{zone.name}}</h2>
+              {% for reputation in zone.reputations  %}
+              
+                  <br><span class="bold">{{reputation.name}}</span>
+                  {% if reputation.name != "Shattrath" and reputation.name != "Cartel Gentepression" and reputation.name != "Forces de la Horde" and reputation.name != "Horde" and reputation.name != "Bassin de Sholazar" and reputation.name != "Gardes du corps de casern"%}
+                    {% if reputation.standing == "Exalté" %}
+                      <span class="vert">{{reputation.standing}} 👑</span> <br> <span class="entour"> 21000 / 21000 </span>
+                    {% elseif reputation.standing == "Meilleur ami" %}
+                      <span class="vert">{{reputation.standing}} 👑</span> <br> <span class="entour"> 21000 / 21000 </span>
+                    {% else %}
+                    <span>{{reputation.standing}}</span>
+                    {% endif %}
+                    {% if reputation.standing != "Exalté" and reputation.standing != "Reconnaissance" and reputation.standing != "Seigneur du temps"and reputation.standing != "Meilleur ami"%}
+                    
+                    <br><span class="entour">{{reputation.value}} - {{reputation.maxValue}} </span>
+                   
+                  {% endif %}
+                {% endif %}
+                
+              {% endfor %}
+      </div>
+    {% endfor %}
+    </div>
+
+<script src="{{asset('js/api.js')}}"></script>
+
+
+{% endblock %}

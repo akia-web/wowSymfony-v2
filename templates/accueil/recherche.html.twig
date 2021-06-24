@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}accueil{% endblock %}</title> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+        {% block stylesheets %}
+             <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        {% endblock %}
+
+    </head>
+    <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <header>
+
+            <form action="resultat" class="barreRecherche">
+                <input type="text" name="pseudo" id="pseudo" placeholder="pseudo" required autocomplete="off">
+                {# <input type="text" name="serveur" id="serveur" placeholder="serveur" required> #}
+                <input type="text" list="serveur" name="serveur" required autocomplete="off" placeholder="royaume"/>
+                <datalist id="serveur" name="serveur">
+                    <option value="arathi"></option>
+                    <option value="archimonde"></option>   
+                    <option value="dalaran"></option> 
+                    <option value="eitrigg"></option>   
+                    <option value="elune"></option>  
+                    <option value="garona"></option> 
+                    <option value="hyjal"></option>   
+                    <option value="illidan"></option>
+                    <option value="krasus"></option>
+                    <option value="medivh"></option>
+                    <option value="naxxramas"></option>
+                    <option value="rashgarroth"></option>
+                    <option value="sargeras"></option>
+                    <option value="sinstralis"></option>
+                    <option value="suramar"></option>
+                    <option value="uldaman"></option>
+                    <option value="varimathras"></option>
+                    <option value="ysondre"></option>
+                </datalist>
+
+
+
+
+                {# <input type="text" name="local" id="local" placeholder="localité" required> #}
+                <input type="text" list="local" name="local" required placeholder="localisation"/>
+                <datalist id="local" name="local">
+                    <option value="fr_fr">Français</option>
+                    <option value="en_en">Anglais</option>
+                </datalist>
+                <button type="submit" class="rechercher">rechercher</button>
+            </form>
+
+        </header>
+
+        <main class="main1">
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+
+        <script>
+        $("#cache").click(function(){
+            $("#toggle").slideToggle("slow");
+        
+        })
+     </script>   
+        {% endblock %}
+        </main> 
+    </body>
+</html>
