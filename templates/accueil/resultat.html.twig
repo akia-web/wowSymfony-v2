@@ -12,13 +12,26 @@
       
     </div>
 
+    <button> + </button>
+
     </div>
 
     
 
     <div class="categories">
-      <h2>Les réputations</h1> <button id="cache">↕</button>
-    </div>
+      <h2>Les réputations</h1> <button id="cache">↕</button>   
+          </div>
+
+          {% if app.user %}
+        
+           <a href="{{ path('nouveau-post', {'pseudo' : pseudo , 'serveur' : serveur , 'local' : local , 'url': url}) }}">ajouter</a>
+       
+          
+        
+        
+          {% endif %}
+
+
     
     <div class="container-allReputations" id="toggle">
     {% for zone in zones  %}
@@ -27,7 +40,7 @@
               {% for reputation in zone.reputations  %}
               
                   <br><span class="bold">{{reputation.name}}</span>
-                  {% if reputation.name != "Shattrath" and reputation.name != "Cartel Gentepression" and reputation.name != "Forces de la Horde" and reputation.name != "Horde" and reputation.name != "Bassin de Sholazar" and reputation.name != "Gardes du corps de casern"%}
+                  {% if reputation.name != "Shattrath" and reputation.name != "Cartel Gentepression" and reputation.name != "Forces de la Horde" and reputation.name != "Horde" and reputation.name != "Bassin de Sholazar" and reputation.name != "Gardes du corps de caserne" and reputation.name != "Alliance" and reputation.name != "Forces de l\'Alliance" and reputation.name != "Expédition de la Horde" %}
                     {% if reputation.standing == "Exalté" %}
                       <span class="vert">{{reputation.standing}} 👑</span> <br> <span class="entour"> 21000 / 21000 </span>
                     {% elseif reputation.standing == "Meilleur ami" %}
@@ -43,6 +56,7 @@
                 {% endif %}
                 
               {% endfor %}
+              
       </div>
     {% endfor %}
     </div>

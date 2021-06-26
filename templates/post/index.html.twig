@@ -1,0 +1,7 @@
+{% extends 'accueil/index.html.twig' %}
+{% block title %}{{pseudo}}-{{serveur}} création{% endblock %}
+{% block body %}
+<h1>{{pseudo}}</h1>
+<img src="https://render-eu.worldofwarcraft.com/character/{{serveur}}/{{url}}-inset.jpg" alt="">
+{{ form(form) }}
+{% endblock %}

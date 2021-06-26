@@ -1,0 +1,43 @@
+{% extends 'accueil/index.html.twig' %}
+{% block title %} vue{% endblock %}
+{% block body %}
+{{post.pseudo}}
+
+
+<table>
+    <thead>
+   
+    {% for zone in zones  %}
+    <th>
+        {{zone.name}}
+        </th>
+    {% endfor %}
+    
+    </thead>
+
+<tr>
+ {% for zone in zones  %}
+<td>
+              {% for reputation in zone.reputations  %}
+                
+                
+                {% if reputation.name != "Shattrath" and reputation.name != "Cartel Gentepression" and reputation.name != "Forces de la Horde" and reputation.name != "Horde" and reputation.name != "Bassin de Sholazar" and reputation.name != "Gardes du corps de caserne" and reputation.name != "Alliance" and reputation.name != "Forces de l\'Alliance" and reputation.name != "Expédition de la Horde" %}
+                {% if reputation.standing == "Exalté" %}
+                
+               
+                {{reputation.name}}, 
+                
+                {% endif %}
+                  {% endif %}
+                  
+              {% endfor %}
+        
+        
+        
+      </td>   
+    {% endfor %}
+    </tr>
+</table>
+
+{{post.commentaire}}
+{% endblock %}

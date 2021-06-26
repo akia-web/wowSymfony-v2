@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personnages</title>
+      {% block stylesheets %}
+             <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        {% endblock %}
+</head>
+<body>
+<header>
+
+<p>Vous êtes connectez en tant que {{app.user.email}}</p>
+
+</header>
+<div class="personnages">
+<h1>Liste des personnages que vous suivez</h1>
+{% for personnages in app.user.posts %}
+<div class="container-recap-personnage">
+    <img src="https://render-eu.worldofwarcraft.com/character/{{personnages.royaume}}/{{personnages.avatar}}-inset.jpg" alt=""><br>
+    <a href="personnage/{{personnages.id}}">{{personnages.pseudo}} {{personnages.royaume}}</a>
+</div>
+{% endfor %}
+
+</div>
+    
+</body>
+</html>

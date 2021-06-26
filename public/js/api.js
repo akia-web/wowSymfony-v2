@@ -29,5 +29,14 @@ for(i=0; i<h3.length;i++){
     if(h3[i].getAttribute('data-zone')=='Cataclysm'){
         h3[i].classList.add('cataclysm')
     }
+    if(h3[i].getAttribute('data-zone')=='Wrath of the Lich King'){
+        h3[i].classList.add('lichking')
+    }
+    if(h3[i].getAttribute('data-zone')=='The Burning Crusade'){
+        h3[i].classList.add('burning')
+    }
+    if(h3[i].getAttribute('data-zone')=='Classique'){
+        h3[i].classList.add('classic')
+    }
 }
 

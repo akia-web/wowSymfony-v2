@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
 .avatar{
     border-radius: 7px;
     display: block;
@@ -20,7 +22,16 @@
 
 .container-reputation{
     border : 1px solid black;
-    padding: 10px
+    border-radius: 7px;
+    padding: 10px;
+    background-color: white;
+    -webkit-box-shadow: 1px 4px 15px -5px rgba(0,0,0,0.76); 
+    box-shadow: 1px 4px 15px -5px rgba(0,0,0,0.76);
+    transition: background 0.3s ease;
+}
+
+.container-reputation:hover{
+   background-color: rgb(246, 230, 230);
 }
 
 .container-infos{
@@ -97,24 +108,78 @@ h3{
     background-image: url('../image/cataclysm.jpg');
 }
 
-header{
+.lichking{
+    background-image: url('../image/lichking.jpeg');
+}
+
+.burning{
+    background-image: url('../image/burningcrusade.jpg');
+}
+
+.classic{
+    background-image: url('../image/classic.jpg');
+}
+
+
+.header-recherches{
     background-color: rgb(34, 33, 33);
     background-image: url("../image/wow.jpg");
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 300px;
     width: 100%;
+    -webkit-box-shadow: 1px 4px 15px -5px rgba(0,0,0,0.76); 
+    box-shadow: 1px 4px 15px -5px rgba(0,0,0,0.76);
+    font-size: 1.2em;
+    color: white;
+}
+
+header p {
+    text-align: end;
+    padding: 10px
+}
+
+.lien-header{
+    color:white;
+    text-decoration: none;
+    transition:  color 0.2s linear;
+   
+}
+
+.border-lien{
+    border: 1px solid white;
+    border-radius : 7px;
+    padding : 8px;
+    color: white;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.border-lien:hover{
+    color: yellow;
+    border-color : yellow
+}
+
+.lien-header:hover{
+    color:yellow;
 }
 
 .barreRecherche{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 200px;
     justify-content: space-between;
     align-items: center;
-
-
 }
-
+.accueil h1{
+text-align: center;
+margin-bottom: 1em;
+}
+.accueil p {
+  text-align: center;
+  padding: 0 20px;
+}
 form, input, .rechercher{
     display: block;
     padding: 10px;
@@ -122,16 +187,20 @@ form, input, .rechercher{
     margin: 0 auto;
   
 }
-
+.body1{
+    background-color: rgb(240, 246, 246);
+}
 .main1{
     margin-top: 2em;
 }
 @media only screen and (min-width:1200px){
-    
+    .lichking{
+        background-position-y: -1em;
+    }
     .avatar{
         width: 300px;
     }
-
+   
     .categories{
         margin: 4em 0 2em 150px;
     }
