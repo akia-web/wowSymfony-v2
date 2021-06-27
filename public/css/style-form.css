@@ -5,10 +5,11 @@
 }
 
 label {
-    display: block;
-    color:#e83768;
+
+    color:white;
     font-size: 1.1em;
     font-weight: bold;
+    margin-right: 1em;
 }
 
 input{
@@ -17,10 +18,19 @@ input{
 }
 
 input[type="text"], input[type="password"]{
-width: 300px;
+    width: 300px;
+    margin: 3em auto;
+    display: block;
+}
+
+button[type='submit']{
+    padding: 5px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    transition : background 0.3s
 }
 a:visited{
-    color: blue
+    color: black
 }
 
 a{
@@ -28,6 +38,12 @@ a{
     padding: 5px;
     margin-top: 1em;
     text-decoration: none;
+    color: black ;
+    transition : background 0.3s
+}
+
+a:hover, button[type='submit']:hover{
+    background-color:#e83768 ;
 }
 .inscription{
     background-image: url("../image/inscription2.jpg");
