@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}accueil{% endblock %}</title> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">     
+        {% block stylesheets %}
+             <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        {% endblock %}
+
+    </head>
+    <body class="body1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <header class="header-recherches">
+        {% if  is_granted('ROLE_USER') %}
+        <p><a href="{{ path('personnages') }}" class="lien-header">Profil</a></p>
+        <p><a class="border-lien" href="{{ path('app_logout') }}">deconnexion</a></p>
+        {% else %}
+           <p> <a class="lien-header" href="{{ path('app_register') }}">Inscription</a> | <a class="lien-header" href="{{ path('app_login') }}">Se connecter</a></p>
+            
+        {% endif %}
+            <h1 class="info-personnage-titre">{{post.pseudo}} <br>{{post.royaume}}</h1>
+        </header>
+        <main>
+        {% block body %}{% endblock %}
+        {% block javascripts %} {% endblock %}
+
+        </main> 
+    </body>
+</html>

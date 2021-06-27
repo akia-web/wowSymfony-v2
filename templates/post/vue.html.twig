@@ -1,43 +1,48 @@
-{% extends 'accueil/index.html.twig' %}
+{% extends 'post/base.html.twig' %}
 {% block title %} vue{% endblock %}
 {% block body %}
-{{post.pseudo}}
+
+<div class="fiche-perso">
+{% if utilisateur == app.user %}
+<p class="gauche"><a class="supprimer"href="{{ path('supprimer_post',  {id: post.id}) }}">Supprimer</a></p>
+{% endif %}
+
+<img class="avatar-vue"src="https://render-eu.worldofwarcraft.com/character/{{post.royaume}}/{{post.avatar}}-inset.jpg" alt=""><br>
 
 
-<table>
-    <thead>
+</div>
+
+<section class="vue-personnage">
+  <div class="commentaire">
    
-    {% for zone in zones  %}
-    <th>
-        {{zone.name}}
-        </th>
-    {% endfor %}
-    
-    </thead>
+    <h2>Mes commentaires</h2>
+      <p>{{post.commentaire|raw}}</p>
+  {% if utilisateur == app.user %}
+      <a href ="{{ path('modifier-post',  {id: post.id, 'pseudo' : pseudo, 'serveur' : serveur, 'local' : local, 'url': url }) }}">Modifier</a>
 
-<tr>
- {% for zone in zones  %}
-<td>
-              {% for reputation in zone.reputations  %}
-                
-                
-                {% if reputation.name != "Shattrath" and reputation.name != "Cartel Gentepression" and reputation.name != "Forces de la Horde" and reputation.name != "Horde" and reputation.name != "Bassin de Sholazar" and reputation.name != "Gardes du corps de caserne" and reputation.name != "Alliance" and reputation.name != "Forces de l\'Alliance" and reputation.name != "Expédition de la Horde" %}
+    {% endif %}
+
+     
+  </div>
+
+  <div class="titre-reputation-vue">
+    <h2>Réputations Exaltées</h2>
+    <div class="perso-vue-reputations">
+      {% for zone in zones  %}
+        <div class="perso-vue-reputation">
+          <h3>{{zone.name}}</h3>
+            {% for reputation in zone.reputations  %}                
+              {% if reputation.name != "Shattrath" and reputation.name != "Cartel Gentepression" and reputation.name != "Forces de la Horde" and reputation.name != "Horde" and reputation.name != "Bassin de Sholazar" and reputation.name != "Gardes du corps de caserne" and reputation.name != "Alliance" and reputation.name != "Forces de l\'Alliance" and reputation.name != "Expédition de la Horde" %}
                 {% if reputation.standing == "Exalté" %}
-                
-               
-                {{reputation.name}}, 
-                
+                <p>♦ {{reputation.name}}</p> 
                 {% endif %}
-                  {% endif %}
-                  
-              {% endfor %}
-        
-        
-        
-      </td>   
-    {% endfor %}
-    </tr>
-</table>
+              {% endif %}
+            {% endfor %}          
+        </div> 
+      {% endfor %}
 
-{{post.commentaire}}
+
+    </div>
+  </div>
+</section>
 {% endblock %}

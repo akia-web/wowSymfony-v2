@@ -14,6 +14,7 @@
 .container-allReputations{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    
     grid-gap: 50px;
     grid-auto-rows: minmax(100px, auto);
     margin: 0 auto;
@@ -193,6 +194,88 @@ form, input, .rechercher{
 .main1{
     margin-top: 2em;
 }
+
+.info-personnage-titre{
+    text-align: center;
+}
+
+.gauche{
+    text-align: end;
+    margin-top: 2em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+.supprimer{
+    background-color: rgb(165, 7, 7);
+    border-radius: 7px;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.avatar-vue{
+    display: block;
+    margin: 0 auto 2em auto;
+    border-radius: 7px;
+}
+
+.perso-vue-reputations{
+  
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 50px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 0 auto;
+    width: 80%;
+}
+.titre-reputation-vue h2, .commentaire h2{
+    text-align: center;
+    margin-bottom: 2em;
+
+    
+}
+
+
+
+.titre-reputation-vue{
+    background-color: burlywood;
+    padding: 10px;
+}
+
+.commentaire{
+    background-image: url("../image/post-it.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+    height: 465px;
+    overflow-y: auto;
+    font-size: 2em;
+    font-family: 'Jomhuria', cursive;
+    
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.commentaire h2{
+    margin-bottom: 0em;
+}
+
+.commentaire a {
+    color :rgb(92, 14, 14);
+    font-size: 0.8em ;
+    font-style: italic;
+}
+.perso-vue-reputation h3{
+    color:black;
+    padding: 0
+    
+}
+
+
 @media only screen and (min-width:1200px){
     .lichking{
         background-position-y: -1em;
@@ -209,6 +292,34 @@ form, input, .rechercher{
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .perso-vue-reputations{
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0px;
+        margin : 0;
+        width: 80%;
+    }
+
+    .perso-vue-reputation{
+        width: 250px;
+    }
+
+    /* .perso-vue-reputation{
+        border-right: 1px black solid;
+    } */
+    .vue-personnage{
+        display: flex;
+        width: 95%;
+        margin: 0 auto 2em auto;
+    }
+
+    .commentaire {
+        width:  562.5px;
+        margin-right: 200px;
+        background-color: rgb(240, 214, 68);
+        margin-left: 1em ;
+        
+       
+    }
     .container-infos{
         flex-direction: row;
         align-items: center;

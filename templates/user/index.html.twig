@@ -20,7 +20,8 @@
 {% for personnages in app.user.posts %}
 <div class="container-recap-personnage">
     <img src="https://render-eu.worldofwarcraft.com/character/{{personnages.royaume}}/{{personnages.avatar}}-inset.jpg" alt=""><br>
-    <a href="personnage/{{personnages.id}}">{{personnages.pseudo}} {{personnages.royaume}}</a>
+    <a href="{{ path('post',  {id: personnages.id})}}">
+    {{personnages.pseudo}} {{personnages.royaume}}</a>
 </div>
 {% endfor %}
 

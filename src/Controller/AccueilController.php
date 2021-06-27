@@ -112,19 +112,64 @@ class AccueilController extends AbstractController
         //    'serveurconnu'=>$serveurconnu
         ]);
     }
+    /**
+     * @Route("personnages/{pseudo}/{serveur}/{local}/{url}/modifier/{id}", name="modifier-post")
+     */
+    public function modifPost($id, $pseudo, $serveur, $local, Request $request, $url, Posts $classpost):Response
+    {
+        $id = $id;
+        $pseudo = $pseudo;
+        $url = $url;
+        $nouvelleUrl = str_replace("-", "/", $url); 
+        $serveur = $serveur;
+        $local = $local;
+        $form = $this->createForm(PostType::class, $classpost);
+        $form->handleRequest($request);
+        // $pseudoconnu = $post1->getPseudo();
+     
+        // $serveurconnu = $post1->getRoyaume();
 
+        if($form->isSubmitted() && $form->isValid() ){
+            //&& ($pseudo != $pseudoconnu && $serveur != $serveurconnu)
+
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($classpost);
+            $em->flush();
+            return $this->redirectToRoute('post',[
+                'id'=>$id,
+            ]);
+        }
+      
+        
+
+       
+        return $this->render('post/index.html.twig',[
+            'post'=> $classpost,
+            'form'=> $form->createView(),
+           "pseudo" => $pseudo,
+           "serveur" => $serveur,
+           "local" => $local,
+           "url"=> $nouvelleUrl,
+        //    'pseudoconnu'=>$pseudoconnu,
+        //    'serveurconnu'=>$serveurconnu
+        ]);
+    }
+    
 
     /**
-     * @Route("/personnage/{id}", name="post")
+     * @Route("personnages/personnage/bidule/{id}", name="post")
      */
     public function post($id, PostsRepository $postsRepository, HttpClientInterface $httpclient, Posts $post1):Response
     {
-     
+        $idUtilisateur = $post1->getUsers();
         $post = $postsRepository->findOneBy(['id'=> $id]);
         // $pseudo = $postsRepository->findOneBy(['pseudo'=> $pseudo]);
         $pseudo = $post1->getPseudo();
         $local = $post1->getLocalite();
         $serveur = $post1->getRoyaume();
+        $url = $post1->getAvatar();
+        $nouvelleUrl = str_replace("/", "-", $url); 
+
         
        
 
@@ -146,16 +191,38 @@ class AccueilController extends AbstractController
             'zones'=>$response->toArray()["reputations"], 
             'persos'=>$response2->toArray()['character'],
             'pseudo' => $pseudo,
+            'serveur' => $serveur,
+            'local' => $local,
+            'url' => $nouvelleUrl,
+            'utilisateur' =>$idUtilisateur,
+           
+
+        
+           
             
         ]);
     }
+   /**
+    * @Route("/supprimer/post{id}", name="supprimer_post")
+    */
+    public function supprimerArticle(Posts $post)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+
+        $this->addFlash('message', 'Le personnage à bien été supprimé');
+        return $this->redirectToRoute('personnages');
+        
+    }
+
 
     /**
      * @Route("/personnages", name="personnages")
      */
     public function personnages()
     {
-     
+      
        
         return $this->render('user/index.html.twig',[
            
