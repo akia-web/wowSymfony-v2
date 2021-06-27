@@ -296,7 +296,7 @@ form, input, .rechercher{
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 0px;
         margin : 0;
-        width: 80%;
+        /* width: 80%; */
     }
 
     .perso-vue-reputation{
@@ -308,13 +308,14 @@ form, input, .rechercher{
     } */
     .vue-personnage{
         display: flex;
+        justify-content: space-between;
         width: 95%;
         margin: 0 auto 2em auto;
     }
 
     .commentaire {
         width:  562.5px;
-        margin-right: 200px;
+     
         background-color: rgb(240, 214, 68);
         margin-left: 1em ;
         
