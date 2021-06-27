@@ -6,24 +6,28 @@
 {% endblock %}
 
 {% block body %}
-   <section class="inscription">
-        
-        {% for flashError in app.flashes('verify_email_error') %}
-            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-        {% endfor %}
 
-        <h1>Créer un compte</h1>
+   <section class="section-inscription">
+        <a href="{{path('accueil')}}" class="retour-accueil">Retour à l'accueil</a>
+        <div class="inscription">
+           
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
 
-        {{ form_start(registrationForm) }}
-            
-            {{ form_widget(registrationForm.email) }}
-            {{ form_widget(registrationForm.plainPassword) }}
-            {{ form_row(registrationForm.agreeTerms) }}
+            <h1>Créer un compte</h1>
 
-            <button type="submit" class="btn">Enregistrer</button>
-        {{ form_end(registrationForm) }}
+            {{ form_start(registrationForm) }}
+                
+                {{ form_widget(registrationForm.email) }}
+                {{ form_widget(registrationForm.plainPassword) }}
+                {{ form_row(registrationForm.agreeTerms) }}
 
-        <h2>Vous avez déjà un compte ?</h2>
-        <a href="{{path('app_login')}}">Se connecter</a>
+                <button type="submit" class="btn">Enregistrer</button>
+            {{ form_end(registrationForm) }}
+
+            <h2>Vous avez déjà un compte ?</h2>
+            <a href="{{path('app_login')}}">Se connecter</a>
+        </div>
     </section>
 {% endblock %}

@@ -45,16 +45,26 @@ a{
 a:hover, button[type='submit']:hover{
     background-color:#e83768 ;
 }
-.inscription{
+
+.retour-accueil{
+    margin-left: 1em;
+  
+}
+
+.section-inscription{
     background-image: url("../image/inscription2.jpg");
     background-size: cover;
     background-position: center;
     min-height: 100vh;
+    background-repeat: no-repeat;
+}
+.inscription{
+  
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-repeat: no-repeat;
+    height: 98vh;
     color: white;
 }
 
