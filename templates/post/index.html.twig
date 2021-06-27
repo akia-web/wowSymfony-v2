@@ -1,7 +1,23 @@
-{% extends 'accueil/index.html.twig' %}
-{% block title %}{{pseudo}}-{{serveur}} création{% endblock %}
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{pseudo}}-{{serveur}} création{% endblock %}</title>
+</head>
+<body>
+    
+
+
 {% block body %}
-<h1>{{pseudo}}</h1>
+{% if app.request.attributes.get('_route') == 'modifier-post' %}
+    <h1>Modification de la fiche personnage : {{pseudo}}</h1>
+{% else %}
+       <h1>Création de la fiche personnage : {{pseudo}}</h1>
+    {% endif %}
 <img src="https://render-eu.worldofwarcraft.com/character/{{serveur}}/{{url}}-inset.jpg" alt="">
 {{ form(form) }}
 {% endblock %}
+</body>
+</html>
