@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    color:#e83768;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+input{
+    margin-bottom: 1em;
+    padding: 5px;
+}
+
+input[type="text"], input[type="password"]{
+width: 300px;
+}
+a:visited{
+    color: blue
+}
+
+a{
+    background-color: white;
+    padding: 5px;
+    margin-top: 1em;
+    text-decoration: none;
+}
+.inscription{
+    background-image: url("../image/inscription2.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+@media only screen and (min-width:1200px){
+    input[type="text"], input[type="password"]{
+        width: 1000px;
+    }
+
+    .inscription{
+        background-position-y: -40px;
+    }
+}
