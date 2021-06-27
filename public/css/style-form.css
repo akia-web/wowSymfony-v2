@@ -17,7 +17,7 @@ input{
     padding: 5px;
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"], input[type="password"], input[type="email"]{
     width: 300px;
     margin: 3em auto;
     display: block;
@@ -51,14 +51,18 @@ a:hover, button[type='submit']:hover{
   
 }
 
-.section-inscription{
+.section-inscription, .section-login{
     background-image: url("../image/inscription2.jpg");
     background-size: cover;
     background-position: center;
     min-height: 100vh;
     background-repeat: no-repeat;
 }
-.inscription{
+
+.section-login{
+    background-image: url("../image/inscription.jpg");
+}
+.inscription, .form-login{
   
     display: flex;
     flex-direction: column;
@@ -69,7 +73,7 @@ a:hover, button[type='submit']:hover{
 }
 
 @media only screen and (min-width:1200px){
-    input[type="text"], input[type="password"]{
+    input[type="text"], input[type="password"], input[type="email"]{
         width: 1000px;
     }
 
