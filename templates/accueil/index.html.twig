@@ -1,9 +1,26 @@
 {% extends 'accueil/recherche.html.twig' %}
 {% block body %}
 <div class="accueil">
+
+
 <h1>Bienvenue !</h1>
 
 <p>Rentrez le nom de votre personnage, son royaume ainsi que la localisation du serveur</p>
+
+    {% if  is_granted('ROLE_USER') %}
+     <section class="section-accueil">
+       <h2>Personnages suivis</h2>
+        <div class="personnage-accueil">
+            {% for personnages in app.user.posts %}
+            <div class="container-recap-personnage">
+            <div><a href="{{ path('post',  {id: personnages.id})}}"><img src="https://render-eu.worldofwarcraft.com/character/{{personnages.royaume}}/{{personnages.avatar}}-inset.jpg" alt=""></a></div>
+            <a href="{{ path('post',  {id: personnages.id})}}">
+            {{personnages.pseudo}} {{personnages.royaume}}</a> <br>
+            </div>
+            {% endfor %}
+        </div> 
+    </section>    
+    {% endif %}
 
 </div>
 
