@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <header class="header-recherches">
         {% if  is_granted('ROLE_USER') %}
-        <p><a href="{{ path('personnages') }}" class="lien-header">Profil</a></p>
+        <p><a href="{{ path('accueil') }}" class="lien-header">Personnages</a></p>
         <p><a class="border-lien" href="{{ path('app_logout') }}">deconnexion</a></p>
         {% else %}
            <p> <a class="lien-header" href="{{ path('app_register') }}">Inscription</a> | <a class="lien-header" href="{{ path('app_login') }}">Se connecter</a></p>

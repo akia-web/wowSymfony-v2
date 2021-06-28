@@ -15,21 +15,23 @@
    
 
     </div>
-
-    
-
     <div class="categories">
       <h2>Les réputations</h1> <button id="cache">↕</button>   
           </div>
-
-          {% if app.user %}
-        
-           <a href="{{ path('nouveau-post', {'pseudo' : pseudo , 'serveur' : serveur , 'local' : local , 'url': url}) }}">ajouter</a>
-       
           
-        
-        
-          {% endif %}
+           {% if app.user %}
+              {% set reponsecommentaire = "" %}
+              {% for post in app.user.posts %}
+                {% if post.pseudo == pseudo and post.royaume == serveur %}
+                  {% set reponsecommentaire = "ok" %}
+                  {{post.commentaire|raw}}  <a href ="{{ path('modifier-post',  {id: post.id, 'pseudo' : pseudo, 'serveur' : serveur, 'local' : local, 'url': url }) }}">Modifier</a>
+                  <p class="gauche"><a class="supprimer"href="{{ path('supprimer_post',  {id: post.id}) }}">Supprimer</a></p>         
+                {% endif %}
+              {% endfor %}
+              {% if reponsecommentaire != "ok" %}
+                <a href="{{ path('nouveau-post', {'pseudo' : pseudo , 'serveur' : serveur , 'local' : local , 'url': url}) }}">ajouter</a>
+              {% endif %}
+            {% endif %}
 
 
     

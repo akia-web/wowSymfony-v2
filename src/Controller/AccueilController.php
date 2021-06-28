@@ -65,7 +65,8 @@ class AccueilController extends AbstractController
             'serveur'=> $serveur, 
             'local' => $local,
             'posts' => $post->findAll(),
-            'url'=> $url
+            'url'=> $url,
+          
         ]);
     }
 
@@ -96,9 +97,9 @@ class AccueilController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
-
+            return $this->redirectToRoute('accueil');
         }
-        // return $this->redirectToRoute('admin');
+       
         
 
        
@@ -135,9 +136,7 @@ class AccueilController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($classpost);
             $em->flush();
-            return $this->redirectToRoute('post',[
-                'id'=>$id,
-            ]);
+            return $this->redirectToRoute('accueil');
         }
       
         
@@ -212,7 +211,7 @@ class AccueilController extends AbstractController
         $em->flush();
 
         $this->addFlash('message', 'Le personnage à bien été supprimé');
-        return $this->redirectToRoute('personnages');
+        return $this->redirectToRoute('accueil');
         
     }
 
